@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment scrollable (ionChange)="segmentChange($event)" [value]="typeSelected"> <!--se coloca este evento ionchange-->
+    <ion-segment-button *ngFor="let tipo of tipos"
+    [value]="tipo"
+    > <!--se hace un ngfor para que los segments buttons tomen lo valores de el array tipos-->
+    <!--se hace el value= tipo para que mande a consola el valor que se buscara-->
+      <ion-label>{{tipo}}</ion-label> 
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let card of misCards" size-xs="12" size-sm="6" size-md="4" size-lg="3">
+        <app-card [card]="card"></app-card> <!--ya no hay errores al momento de llamar al componente-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
