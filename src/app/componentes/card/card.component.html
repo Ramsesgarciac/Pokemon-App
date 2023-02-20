@@ -7,7 +7,8 @@
         </ion-text>
       </ion-col>
       <ion-col size="2">
-        <ion-button fill="clear" (click)="ActionBoton()">
+        <ion-button fill="clear" (click)="ActionBoton(card)"> <!--se le pone card por el ngFor, por el card.name, ya que tendra que enviar ese parametro 
+        en el boton-->
           <ion-icon slot="icon-only" name="ellipsis-vertical-outline" ></ion-icon>
         </ion-button>
       </ion-col>
