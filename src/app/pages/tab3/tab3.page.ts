@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FavoritosService } from '../../services/favoritos.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(private favoritesService:FavoritosService) {}
+
+  get favoritosLocal(){
+    let card =  this.favoritesService.localCards;
+    console.log(card.length < 1)
+    return card
+  }
 
 }

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tab4</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+   placeholder="Buscar"
+   debounce="500"
+   searchIcon="search"
+   mode="ios"
+   showCancelButton="always"
+   (ionChange)="buscar($event)"
+  >
+
+</ion-searchbar>
+<ion-grid fixed>
+  <ion-row>
+    <ion-col *ngFor="let card of cards" size-xs="12" size-sm="6" size-md="4" size-lg="3">
+      <app-card [card]="card"></app-card> <!--ya no hay errores al momento de llamar al componente-->
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
