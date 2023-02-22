@@ -22,7 +22,7 @@ export class Tab1Page {
         }
         console.log(cards) //se imprime cards que pusimos en la linea de arriba
         this.cards=cards.data //aqui se llama el arreglo cards de arriba
-        //el error de data se arrelga con (cards:any) de la linea 16
+        //el error de data se arrelga con (cards:any) de la linea 20
       }
     );
   }

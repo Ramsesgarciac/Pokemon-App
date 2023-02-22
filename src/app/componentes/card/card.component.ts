@@ -79,6 +79,7 @@ export class CardComponent implements OnInit {
     const open = async () => {
       await InAppBrowser.create(`${this.card.cardmarket.url}`)
     }
+    open()
   }
 
 }
