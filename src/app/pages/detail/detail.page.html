@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="end">{{card.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col  sizeXs="12" sizeMd="6" sizeLg="3">
+        <ion-img [src]="card.images?.large"></ion-img>
+      </ion-col>
+      <ion-col sizeXs="6" sizeMd="6" sizeLg="3">
+
+          <h3 class="text2">nombre:</h3>
+          <p>{{card.name}}</p>
+          <h3 class="text2">hp:</h3>
+          <p>{{card.hp}}</p>
+          
+          <h3 class="text2">level:</h3> 
+          <p>{{card.level}}</p> 
+
+      </ion-col>
+      <ion-col sizeXs="6" sizeMd="6" sizeLg="3">
+        
+          <h3 class="text2">artista:</h3>
+          <p>{{card.artist}}</p>
+          <h3 class="text2">tipo:</h3>
+          <p>{{card.types}}</p>
+          <h3 class="text2">rareza:</h3>
+          <p>{{card.rarity}}</p> 
+        
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -9,7 +9,10 @@ import { TcgService } from '../../services/tcg.service';
 export class Tab4Page implements OnInit {
   cards :any[] = []
 
-  constructor(private tcgs:TcgService) { }
+  constructor(
+    private tcgs:TcgService,
+    
+    ) { }
 
   ngOnInit() {
   }

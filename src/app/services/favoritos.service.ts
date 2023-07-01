@@ -27,8 +27,8 @@ export class FavoritosService {
       this.delete = true
       console.log(this.existe)
     }else{
-     this.misFavoritos.unshift(card) 
-     this.delete = false
+    this.misFavoritos.unshift(card) 
+    this.delete = false
     }
     localStorage.setItem('favoritos', JSON.stringify(this.misFavoritos))
     return this.delete
@@ -36,7 +36,6 @@ export class FavoritosService {
 
   verificarFavoritos(card:any){
     return !!this.misFavoritos.find(c => c.id===card.id)
-
   }
 
   get localCards(){

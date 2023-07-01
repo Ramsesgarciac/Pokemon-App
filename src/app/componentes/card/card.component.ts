@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActionSheetController, ToastController } from '@ionic/angular';
+import { ActionSheetController, Platform, ToastController } from '@ionic/angular';
 import { FavoritosService } from '../../services/favoritos.service';
-import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser';
 import { url } from 'inspector';
+import { Browser } from '@capacitor/browser';
+import { Share } from '@capacitor/share';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -15,10 +17,11 @@ export class CardComponent implements OnInit {
   constructor(
     private asc:ActionSheetController,
     private favoriteServices: FavoritosService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private pf:Platform, //importamos el Platform
+    private route:Router //se importa el router
   ) { 
   }
-
 
   ngOnInit() {
     console.log(this.card)
@@ -35,6 +38,9 @@ export class CardComponent implements OnInit {
         {
           text:'compartir',
           icon:'share',
+          handler:()=>{
+            this.compartir();
+          }
         },
         {
           text:fav ? 'remover de favoritos' : "Agregar a favorito" ,
@@ -75,11 +81,24 @@ export class CardComponent implements OnInit {
     await toast.present()
   }
 
-  openBrowser(){
-    const open = async () => {
-      await InAppBrowser.create(`${this.card.cardmarket.url}`)
+  async openBrowser(){
+    if(this.pf.is('ios')||this.pf.is('android')){
+      await Browser.open({url:''});
+    }else{
+      console.log('solo para celulares');
+      window.open(this.card.cardmarket.url,'_blank')
     }
-    open()
   }
 
+  async compartir(){
+    await Share.share({
+      title:'te comparto esta card',
+      text:this.card.name,
+      url:this.card.cardmarket.url
+    });
+  }
+
+  verDetalles(id:any){ //esta funcion nos atyudara a ver los detalles de la carta seleccionada por su id
+    this.route.navigate(['/detail',id]);
+  }
 }

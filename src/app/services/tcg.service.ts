@@ -21,4 +21,8 @@ export class TcgService {
   getCardsByName(name:string){
     return this.http.get(`https://api.pokemontcg.io/v2/cards?q=name:${name}&pageSize=3`);
   }
+
+  getCard(id:string){
+    return this.http.get('https://api.pokemontcg.io/v2/cards/'+id);
+  }
 }
